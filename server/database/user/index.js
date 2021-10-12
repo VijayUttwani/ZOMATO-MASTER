@@ -23,7 +23,7 @@ const UserSchema = new mongoose.Schema(
 // JWT Auth token
 UserSchema.methods.generateJwtToken = function () {
 	return jwt.sign({ user: this._id.toString() }, "ZomatoApp");
-  };
+};
 
 UserSchema.statics.findByEmailAndPhone = async ({ email, phoneNumber }) => {
 	// Check whether the email exists
@@ -32,9 +32,22 @@ UserSchema.statics.findByEmailAndPhone = async ({ email, phoneNumber }) => {
 	// Check whether the phoneNumber exists
 	const checkUserByPhone = await UserModel.findOne({ phoneNumber });
 	if (checkUserByEmail || checkUserByPhone) {
-		throw new Error("User already Exists...!!!");
+		throw new Error("User already Exists..!");
 	}
 	return false;
+};
+
+UserSchema.statics.findByEmailAndPassword = async ({ email, password }) => {
+	// Check whether the email exists
+	const user = await UserModel.findOne({ email });
+	if (!user) throw new Error("User doesn't exist..!");
+
+	// Compare password
+	const doesPasswordMatch = await bcrypt.compare(password, user.password);
+	if (!doesPasswordMatch) {
+		throw new Error("Invalid password..!");
+	}
+	return user;
 };
 
 UserSchema.pre("save", function (next) {
