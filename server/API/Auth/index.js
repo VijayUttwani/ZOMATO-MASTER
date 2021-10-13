@@ -7,6 +7,9 @@ import passport from "passport";
 // Models
 import { UserModel } from "../../database/user";
 
+// Validation
+import { ValidateSignup, ValidateSignin } from "../../validation/auth";
+
 const Router = express.Router();
 
 /*
@@ -19,6 +22,8 @@ Method : POST
 
 Router.post("/signup", async (req, res) => {
 	try {
+		await ValidateSignup(req.body.credentials);
+
 		await UserModel.findByEmailAndPhone(req.body.credentials);
 
 		// DB
@@ -43,9 +48,9 @@ Method : POST
 
 Router.post("/signin", async (req, res) => {
 	try {
-		const user = await UserModel.findByEmailAndPassword(
-			req.body.credentials
-		);
+		await ValidateSignin(req.body.credentials);
+
+		const user = await UserModel.findByEmailAndPassword(req.body.credentials);
 
 		// JWT Auth token
 		const token = user.generateJwtToken();
@@ -61,7 +66,7 @@ Router.post("/signin", async (req, res) => {
 // Des       Google Signin
 // Params    none
 // Access    Public
-// Method    GET  
+// Method    GET
 // */
 // Router.get(
 // 	"/google",
@@ -72,13 +77,13 @@ Router.post("/signin", async (req, res) => {
 // 	  ],
 // 	})
 //   );
-  
+
 //   /*
 //   Route     /google/callback
 //   Des       Google Signin Callback
 //   Params    none
 //   Access    Public
-//   Method    GET  
+//   Method    GET
 //   */
 //   Router.get(
 // 	"/google/callback",

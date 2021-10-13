@@ -14,18 +14,22 @@ Access           Public
 Method           GET
 */
 
-Router.get("/:_id", async (req, res) => {
-	try {
-		const { _id } = req.params;
-		const getOrders = await OrderModel.findOne({ user: _id });
+Router.get(
+	"/:_id",
+	passport.authenticate("jwt", { session: false }),
+	async (req, res) => {
+		try {
+			const { _id } = req.params;
+			const getOrders = await OrderModel.findOne({ user: _id });
 
-		if (!getOrders) {
-			return res.status(404).json({ error: "User not found..!" });
+			if (!getOrders) {
+				return res.status(404).json({ error: "User not found..!" });
+			}
+		} catch (error) {
+			return res.status(500).json({ error: error.message });
 		}
-	} catch (error) {
-		return res.status(500).json({ error: error.message });
 	}
-});
+);
 
 /*
 Route            /new
