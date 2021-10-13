@@ -34,16 +34,16 @@ Access    Public
 Method    GET  
 */
 
-Router.get("/category/:category")
-try {
-	const { category } = req.params;
-	const foods = await FoodModel.find({
-		category: { $regex: category, $options: "i" },
-	});
+Router.get("/category/:category", async (req, res) => {
+	try {
+		const { category } = req.params;
+		const foods = await FoodModel.find({
+			category: { $regex: category, $options: "i" },
+		});
 
-	return res.json({ foods });
-} catch (error) {
-	return res.json(500).json({ error: error.message });
-}
-
+		return res.json({ foods });
+	} catch (error) {
+		return res.json(500).json({ error: error.message });
+	}
+});
 export default Router;
