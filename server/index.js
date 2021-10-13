@@ -13,6 +13,10 @@ import Auth from "./API/Auth";
 import Restaurant from "./API/Restaurant";
 import Food from "./API/Food";
 import Menu from "./API/Menu";
+import Image from "./API/Image";
+import Order from "./API/Order";
+import Review from "./API/Review";
+import User from "./API/User";
 
 // Database Connection
 import ConnectDB from "./database/connection";
@@ -24,18 +28,22 @@ zomato.use(express.urlencoded({ extended: false }));
 
 zomato.use(helmet());
 zomato.use(cors());
-zomato.use(passport.initialize());
-zomato.use(passport.session());
+// zomato.use(passport.initialize());
+// zomato.use(passport.session());
 
-// Passport configuration
-googleAuthConfig(passport);
+// // Passport configuration
+// googleAuthConfig(passport);
 
 // For Application Routes
 // Example Route: localhost:4000/auth/signup
 zomato.use("/auth", Auth);
-zomato.use("./restaurant", Restaurant);
-zomato.use("./food", Food);
-zomato.use("./menu", Menu);
+zomato.use("/restaurant", Restaurant);
+zomato.use("/food", Food);
+zomato.use("/menu", Menu);
+zomato.use("/image", Image);
+zomato.use("/order", Order);
+zomato.use("/review", Review);
+zomato.use("/user", User);
 
 zomato.get("/", (req, res) => res.json({ message: "SetUp Success🎉" }));
 
