@@ -9,7 +9,8 @@ import passport from "passport";
 import googleAuthConfig from "./config/google.config";
 
 // API
-import Auth from "./API/Auth"
+import Auth from "./API/Auth";
+import Restaurant from "./API/Restaurant"
 
 // Database Connection
 import ConnectDB from "./database/connection";
@@ -29,7 +30,9 @@ googleAuthConfig(passport);
 
 // For Application Routes
 // Example Route: localhost:4000/auth/signup
-zomato.use("/auth", Auth)
+zomato.use("/auth", Auth);
+zomato.use("./restaurant, Restaurant");
+
 
 zomato.get("/", (req, res) => res.json({ message: "SetUp Success🎉" }));
 
