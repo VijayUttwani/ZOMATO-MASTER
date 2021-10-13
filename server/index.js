@@ -3,6 +3,10 @@ require("dotenv").config();
 import express from "express";
 import cors from "cors";
 import helmet from "helmet";
+import passport from "passport";
+
+// Configs
+import googleAuthConfig from "./config/google.config";
 
 // API
 import Auth from "./API/Auth"
@@ -17,6 +21,11 @@ zomato.use(express.urlencoded({ extended: false }));
 
 zomato.use(helmet());
 zomato.use(cors());
+zomato.use(passport.initialize());
+zomato.use(passport.session());
+
+// Passport configuration
+googleAuthConfig(passport);
 
 // For Application Routes
 // Example Route: localhost:4000/auth/signup

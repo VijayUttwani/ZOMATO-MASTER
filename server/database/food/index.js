@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
 const FoodSchema = new mongoose.Schema(
 	{
@@ -14,7 +14,7 @@ const FoodSchema = new mongoose.Schema(
 		price: { type: Number, default: 150, required: true },
 		addOns: [
 			{
-				types: mongoose.Types.ObjectId,
+				type: mongoose.Types.ObjectId,
 				ref: "Foods",
 			},
 		],
