@@ -5,8 +5,8 @@ import cors from "cors";
 import helmet from "helmet";
 import passport from "passport";
 
-// // Configs
-// import googleAuthConfig from "./config/google.config";
+// Configs
+import googleAuthConfig from "./config/google.config";
 import routeConfig from "./config/route.config";
 
 // API
@@ -29,11 +29,11 @@ zomato.use(express.urlencoded({ extended: false }));
 
 zomato.use(helmet());
 zomato.use(cors());
-// zomato.use(passport.initialize());
-// zomato.use(passport.session());
+zomato.use(passport.initialize());
+zomato.use(passport.session());
 
-// // Passport configuration
-// googleAuthConfig(passport);
+// Passport configuration
+googleAuthConfig(passport);
 routeConfig(passport);
 
 // For Application Routes
