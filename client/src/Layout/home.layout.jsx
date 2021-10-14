@@ -1,15 +1,15 @@
-import react from "react";
+import React from "react";
 
-// Components
+//Components
 import Navbar from "../Components/Navbar";
+import FoodTab from "../Components/FoodTab";
 
 const HomeLayout = (props) => {
 	return (
 		<>
-			<div className="container mx-auto px-4 lg:px-20">
-				<Navbar />
-				{props.children}
-			</div>
+			<Navbar />
+			<FoodTab />
+			<div className="container mx-auto lg:px-20"> {props.children}</div>
 		</>
 	);
 };
