@@ -1,24 +1,57 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { IoMdArrowDropright } from "react-icons/io";
+import { MdContentCopy } from "react-icons/md";
+import { FaDirections } from "react-icons/fa";
 import Slider from "react-slick";
 import ReactStars from "react-star-rating-component";
 
 // components
-import { NextArrow, PrevArrow } from "../../Components/CarousalArrow";
 import MenuCollection from "../../Components/Restaurant/MenuCollection";
+import MenuSimilarRestaurantcard from "../../Components/Restaurant/MenuSimilarRestaurantCard";
+import { NextArrow, PrevArrow } from "../../Components/CarousalArrow";
+import ReviewCard from "../../Components/Restaurant/Reviews/ReviewCard";
+import { IoPhonePortrait } from "react-icons/io5";
 
 const Overview = () => {
 	const { id } = useParams();
 
 	const settings = {
 		arrows: true,
-		infinite: true,
+		infinite: false,
 		speed: 500,
-		slidesToShow: 3,
+		slidesToShow: 4,
 		slidesToScroll: 1,
+		initialSlide: 0,
 		nextArrow: <NextArrow />,
 		prevArrow: <PrevArrow />,
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 1,
+					infinite: true,
+				},
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					arrows: false,
+					slidesToShow: 2,
+					slidesToScroll: 2,
+					initialSlide: 2,
+				},
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					arrows: false,
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+		],
 	};
 
 	const ratingChanged = (newRating) => {
@@ -65,15 +98,63 @@ const Overview = () => {
 							Exclusive of applicable taxes and charges, if any
 						</small>
 					</div>
+					<div className="my-4">
+						<h4 className="text-lg font-medium">Similar Restaurants</h4>
+						<div>
+							<Slider {...settings}>
+								<MenuSimilarRestaurantcard
+									image="https://b.zmtcdn.com/data/pictures/chains/7/1400017/18e93a7161f8b9e614b7bd76b362118c_featured_v2.jpg"
+									title="Baskin Robbins"
+								/>
+								<MenuSimilarRestaurantcard
+									image="https://b.zmtcdn.com/data/pictures/chains/7/1400017/18e93a7161f8b9e614b7bd76b362118c_featured_v2.jpg"
+									title="Baskin Robbins"
+								/>
+								<MenuSimilarRestaurantcard
+									image="https://b.zmtcdn.com/data/pictures/chains/7/1400017/18e93a7161f8b9e614b7bd76b362118c_featured_v2.jpg"
+									title="Baskin Robbins"
+								/>
+								<MenuSimilarRestaurantcard
+									image="https://b.zmtcdn.com/data/pictures/chains/7/1400017/18e93a7161f8b9e614b7bd76b362118c_featured_v2.jpg"
+									title="Baskin Robbins"
+								/>
+								<MenuSimilarRestaurantcard
+									image="https://b.zmtcdn.com/data/pictures/chains/7/1400017/18e93a7161f8b9e614b7bd76b362118c_featured_v2.jpg"
+									title="Baskin Robbins"
+								/>
+								<MenuSimilarRestaurantcard
+									image="https://b.zmtcdn.com/data/pictures/chains/7/1400017/18e93a7161f8b9e614b7bd76b362118c_featured_v2.jpg"
+									title="Baskin Robbins"
+								/>
+								<MenuSimilarRestaurantcard
+									image="https://b.zmtcdn.com/data/pictures/chains/7/1400017/18e93a7161f8b9e614b7bd76b362118c_featured_v2.jpg"
+									title="Baskin Robbins"
+								/>
+							</Slider>
+						</div>
+					</div>
+					<div className="my-4">
+						<h4 className="text-lg font-medium">
+							Rate your delivery experience
+						</h4>
+						<ReactStars
+							count={5}
+							onChange={ratingChanged}
+							size={24}
+							activeColor="#ffd700"
+						/>
+					</div>
+					<div className="my-4 flex flex-col gap-4">
+						<ReviewCard />
+						<ReviewCard />
+					</div>
 				</div>
 				<aside
 					style={{ height: "fit-content" }}
-					className="hidden md:block md:w-4/12 sticky rounded-xl top-2 bg-white p-3 shadow-md"
+					className="hidden md:flex md:w-4/12 sticky rounded-xl top-2 bg-white p-3 shadow-md flex flex-col gap-4"
 				>
-					<div>
-						<h4 className="text-xl font-medium">Call</h4>
-						<h5 className="text-zomato-400 font-medium">+918047192229</h5>
-					</div>
+					<h4 className="text-lg font-medium">Call</h4>
+					<h5 className="text-zomato-400 font-medium">+917803023985</h5>
 				</aside>
 			</div>
 		</>
