@@ -1,8 +1,13 @@
 import React from "react";
+import { TiStarOutline } from "react-icons/ti";
+import { RiDirectionLine, RiShareForwardLine } from "react-icons/ri";
+import { BiBookmarkPlus } from "react-icons/bi";
 
-// components
+// Components
 import RestaurantNavbar from "../Components/Navbar/restaurantNavbar";
 import ImageGrid from "../Components/Restaurant/ImageGrid";
+import InfoButtons from "../Components/Restaurant/InfoButtons";
+import RestaurantInfo from "../Components/Restaurant/RestaurantInfo";
 
 const RestaurantLayout = () => {
 	return (
@@ -19,6 +24,27 @@ const RestaurantLayout = () => {
 						"https://b.zmtcdn.com/data/dish_photos/659/295afd575281e4ce63d7578c806ad659.jpg?fit=around|130:130&crop=130:130;*,*",
 					]}
 				/>
+				<RestaurantInfo
+					name="The Belgian Waffle Co."
+					restaurantRating="4.1"
+					deliveryRating="4.3"
+					cuisine="Desserts, Ice Cream, Beverages, Waffle"
+					address="Old Palasia, Indore"
+				/>
+				<div className="my-4 flex flex-wrap gap-3">
+					<InfoButtons isActive>
+						<TiStarOutline /> Add Review
+					</InfoButtons>
+					<InfoButtons>
+						<RiDirectionLine /> Direction
+					</InfoButtons>
+					<InfoButtons>
+						<BiBookmarkPlus /> Bookmark
+					</InfoButtons>
+					<InfoButtons>
+						<RiShareForwardLine /> Share
+					</InfoButtons>
+				</div>
 			</div>
 		</>
 	);
