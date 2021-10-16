@@ -107,28 +107,28 @@ const Overview = () => {
 									title="Baskin Robbins"
 								/>
 								<MenuSimilarRestaurantcard
-									image="https://b.zmtcdn.com/data/pictures/chains/7/1400017/18e93a7161f8b9e614b7bd76b362118c_featured_v2.jpg"
-									title="Baskin Robbins"
+									image="https://b.zmtcdn.com/data/pictures/chains/3/1400453/82505e8efe78d78cb603c71b476a09e4_featured_v2.jpg?output-format=webp"
+									title="Dev's Bakery"
 								/>
 								<MenuSimilarRestaurantcard
-									image="https://b.zmtcdn.com/data/pictures/chains/7/1400017/18e93a7161f8b9e614b7bd76b362118c_featured_v2.jpg"
-									title="Baskin Robbins"
+									image="https://b.zmtcdn.com/data/pictures/chains/6/19008486/6a597ff9eddf138b2e36b8df383716dc_featured_v2.jpg?output-format=webp"
+									title="99 Pancakes"
 								/>
 								<MenuSimilarRestaurantcard
-									image="https://b.zmtcdn.com/data/pictures/chains/7/1400017/18e93a7161f8b9e614b7bd76b362118c_featured_v2.jpg"
-									title="Baskin Robbins"
+									image="https://b.zmtcdn.com/data/pictures/chains/6/1400226/b1c233114eac576718ad9c7ab3b0170d_featured_v2.jpg?output-format=webp"
+									title="Top 'N' Town"
 								/>
 								<MenuSimilarRestaurantcard
-									image="https://b.zmtcdn.com/data/pictures/chains/7/1400017/18e93a7161f8b9e614b7bd76b362118c_featured_v2.jpg"
-									title="Baskin Robbins"
+									image="https://b.zmtcdn.com/data/pictures/7/18772947/2d95f1ca5dd814b071ee9957946d3181_featured_v2.jpg?output-format=webp"
+									title="Caffe Creme"
 								/>
 								<MenuSimilarRestaurantcard
-									image="https://b.zmtcdn.com/data/pictures/chains/7/1400017/18e93a7161f8b9e614b7bd76b362118c_featured_v2.jpg"
-									title="Baskin Robbins"
+									image="https://b.zmtcdn.com/data/pictures/chains/0/1400710/d4819fe702df0fd6b8152eb1ff383968_featured_v2.jpg?output-format=webp"
+									title="Monica Galaxy"
 								/>
 								<MenuSimilarRestaurantcard
-									image="https://b.zmtcdn.com/data/pictures/chains/7/1400017/18e93a7161f8b9e614b7bd76b362118c_featured_v2.jpg"
-									title="Baskin Robbins"
+									image="https://b.zmtcdn.com/data/pictures/chains/9/1400049/b97032496baad7a884e99146cc8056bd_featured_v2.jpg?output-format=webp"
+									title="Natural Ice Cream"
 								/>
 							</Slider>
 						</div>
@@ -145,7 +145,6 @@ const Overview = () => {
 						/>
 					</div>
 					<div className="my-4 flex flex-col gap-4">
-						<ReviewCard />
 						<ReviewCard />
 					</div>
 				</div>
